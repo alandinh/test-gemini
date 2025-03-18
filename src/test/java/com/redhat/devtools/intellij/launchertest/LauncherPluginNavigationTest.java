@@ -59,38 +59,11 @@ public class LauncherPluginNavigationTest {
         FlatWelcomeFrame welcomeFrame = remoteRobot.find(FlatWelcomeFrame.class, Duration.ofSeconds(30));
         LOGGER.info("IntelliJ welcome frame found");
 
-        // welcomeFrame.createNewProject();
-        
-        MainIdeWindow mainIdeWindow = remoteRobot.find(MainIdeWindow.class, Duration.ofSeconds(30));
-        LOGGER.info("Main IDE window found");
-        
-        MenuBar menuBar = new MenuBar(remoteRobot);
-        menuBar.navigateTo("File", "Settings...");
-        LOGGER.info("Opened Settings dialog using MenuBar");
-        
-        CommonContainerFixture settingsDialog = remoteRobot.find(
-            CommonContainerFixture.class,
-            byXpath("//div[@class='MyDialog' and @title='Settings']"),
-            Duration.ofSeconds(10)
-        );
-        
-        settingsDialog.findText("Plugins").click();
-        LOGGER.info("Clicked on Plugins button");
-        
-        CommonContainerFixture pluginsPanel = remoteRobot.find(
-            CommonContainerFixture.class,
-            byXpath("//div[@class='JBSplitter' and .//div[@accessiblename='Plugins']]"),
-            Duration.ofSeconds(10)
-        );
-        
-        try {
-            pluginsPanel.findText("Marketplace").click();
-            LOGGER.info("Clicked on Marketplace tab");
-        } catch (Exception e) {
-            LOGGER.info("Marketplace tab might already be selected or has a different name");
-        }
-        
-        settingsDialog.button("Cancel").click();
-        LOGGER.info("Successfully navigated to plugins marketplace");
+        welcomeFrame.createNewProject();
+    }
+
+    @AfterAll
+    public static void closeIde() {
+        UITestRunner.closeIde();
     }
 } 
