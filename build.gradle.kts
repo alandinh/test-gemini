@@ -30,11 +30,14 @@ repositories {
 }
 
 dependencies {
+    implementation(libs.kotlin.reflect)
+    api(libs.junit.jupiter.api)
+    api(libs.remote.robot)
+    api(libs.remote.fixtures)
     intellijPlatform {
         create(IntelliJPlatformType.IntellijIdeaCommunity, platformVersion)
     }
     testImplementation(files("libs/intellij-common-ui-test-library/intellij-common-ui-test-library-0.4.4-SNAPSHOT.jar"))
-    // testImplementation("com.redhat.devtools.intellij:intellij-common-ui-test-library:0.4.3")
     testImplementation("org.junit.platform:junit-platform-launcher:1.10.3")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.3")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.3")
