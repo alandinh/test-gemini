@@ -1,1 +1,1 @@
-rootProject.name = "launcher-test"
+rootProject.name = "test-gemini"

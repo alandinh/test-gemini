@@ -1,1 +1,1 @@
-./gradlew integrationUITest --info
+./gradlew integrationUITest
