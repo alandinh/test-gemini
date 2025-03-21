@@ -100,6 +100,19 @@ public class LauncherPluginNavigationTest {
 
     LOGGER.info("Clicked install button Gemini Code Assist");
 
+    CommonContainerFixture restartButton = remoteRobot.find(
+    CommonContainerFixture.class,
+    byXpath("//div[@accessiblename='Gemini Code Assist' and @class='ListPluginComponent']//div[@class='RestartButton']"),
+    Duration.ofSeconds(10));
+    restartButton.click();
+    LOGGER.info("Clicked restart button Gemini Code Assist");
+
+    CommonContainerFixture restartButton1 = remoteRobot.find(
+    CommonContainerFixture.class,
+    byXpath("//div[@text='Restart']"),
+    Duration.ofSeconds(10));
+    restartButton1.click();
+
     // CommonContainerFixture pluginsPanel = remoteRobot.find(
     // CommonContainerFixture.class,
     // byXpath("//div[@class='JBSplitter' and .//div[@accessiblename='Plugins']]"),
